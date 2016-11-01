@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="keywords" content="JavaScript, WebRTC" />
-  <meta name="description" content="WebRTC codelab" />
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <title>En vivo</title>
 
@@ -11,11 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/precio.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <script src='adapter.js'></script>
-  <script src="js/jquery-2.2.4.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+
 </head>
 <body>
 
@@ -73,40 +67,41 @@
   </div>
   <!--/Navegador-->
 
-
-    <div class="section">
+  <!--Video-->
+  <div class="section">
       <div class="row">
-        <div class="col s12 m8">
-          <video style="width: 100%;height: auto   !important" class="responsive-video">
-          </video>
-          <script>
+        <div class="col s12 m8" id="videos">
+          <div id="vid-box"></div>
+        	<div id="vid-thumb"></div>
+        </div>
+        <div class="col s12 m4">
 
-          var constraints = {
-            video: {
-              mandatory: {
-                maxWidth: 640,
-                maxHeight: 360
-              }
-            }
-          };
+          <form name="loginForm" id="login" action="#" onsubmit="return errWrap(login,this);">
+            <input  type="text" name="username" id="username" placeholder="Enter A Username"/>
+            <button type="submit" name="login_submit" value="Log In">
+              ingresar
+            </button>
+          </form>
 
-          function successCallback(stream) {
-            window.stream = stream; // stream available to console
-            var video = document.querySelector("video");
-            video.src = window.URL.createObjectURL(stream);
-            video.play();
-          }
+          <form name="callForm" id="call" action="#" onsubmit="return errWrap(makeCall,this);">
+            <input class="input__field input__field--nao" type="text" name="number" id="call" placeholder="Enter User To Call!"/>
+        		<button class="cbutton cbutton--effect-radomir md-trigger" type="submit" value="Call" style="margin-top: 40px; margin-left:-10px" data-modal="modal-13">
+              llamar
+            </button>
+        	</form>
 
-          function errorCallback(error){
-            console.log("getUserMedia error: ", error);
-          }
+          <div id="inCall" class="ptext">
+        		<button id="end" onclick="end()" >End</button>
+            <button id="mute" onclick="mute()">Mute</button>
+            <button id="pause" onclick="pause()">Pause</button>
+        	</div>
 
-          navigator.getUserMedia(constraints, successCallback, errorCallback);
-          </script>
+          <div id="logs" class="ptext"></div>
+
         </div>
       </div>
-    </div>
-
+  </div>
+  <!--/Video-->
 
   <!--Footer-->
   <footer class="page-footer light-blue accent-4">
@@ -147,7 +142,14 @@
   <!--/Footer-->
 
   <!--  Scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdn.pubnub.com/pubnub.min.js"></script>
+  <script src="js/webrtc.js"></script>
+  <script src="js/rtc-controller.js"></script>
 
+  <script src="js/init.pubnub.js" charset="utf-8"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
 
 
   </body>

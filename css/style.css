@@ -5,6 +5,46 @@
  *
  * Made By MaterializeCSS.com
  */
+#vid-thumb video{
+  max-width: 140px;
+  height: auto;
+  opacity: 1;
+  z-index: 2;
+  position: absolute;
+  transition: opacity 1s;
+  border: 1px solid gray;
+    border-top-color: gray;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: gray;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: gray;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: gray;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    bottom: 20px;
+    left: 20px;
+}
+
+
+
+#videos{
+  height: 480px;
+}
+
+#vid-box  video{
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+}
 
 nav ul a,
 nav .brand-logo {
