@@ -10,8 +10,8 @@ function login(form) {
 	});
 	var ctrl = window.ctrl = CONTROLLER(phone, get_xirsys_servers);
 	ctrl.ready(function(){
-		form.username.style.background="#55ff5b";
-		form.login_submit.hidden="true";
+		form.action.style.display="none";
+		//form.action.hidden="true";
 		ctrl.addLocalStream(vid_thumb);
 		addLog("Logged in as " + form.username.value);
 	});
@@ -43,8 +43,8 @@ function makeCall(form){
 
 function mute(){
 	var audio = ctrl.toggleAudio();
-	if (!audio) $("#mute").html("Unmute");
-	else $("#mute").html("Mute");
+	if (!audio) $("#mute").html("mic_off");
+	else $("#mute").html("mic_none");
 }
 
 function end(){
@@ -53,8 +53,8 @@ function end(){
 
 function pause(){
 	var video = ctrl.toggleVideo();
-	if (!video) $('#pause').html('Unpause');
-	else $('#pause').html('Pause');
+	if (!video) $('#pause').html('play_arrow');
+	else $('#pause').html('pause');
 }
 
 function getVideo(number){
