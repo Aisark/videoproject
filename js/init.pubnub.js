@@ -2,6 +2,11 @@ var video_out = document.getElementById("vid-box");
 var vid_thumb = document.getElementById("vid-thumb");
 var vidCount  = 0;
 
+function vid_thumb_res(numb) {
+	var alto = numb -135
+	$("#vid-thumb video").css({'top':alto});
+}
+
 function login(form) {
 	var phone = window.phone = PHONE({
 	    number        : form.username.value || "Anonymous", // listen on username line else Anonymous
@@ -9,24 +14,56 @@ function login(form) {
 	    subscribe_key : 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
 	});
 	var ctrl = window.ctrl = CONTROLLER(phone, get_xirsys_servers);
+
 	ctrl.ready(function(){
-		form.action.style.display="none";
-		//form.action.hidden="true";
-		ctrl.addLocalStream(vid_thumb);
-		addLog("Logged in as " + form.username.value);
+		//
+    ctrl.addLocalStream(vid_thumb)
+		$('#vid-thumb video').animate({width: "100%"},800,'linear');
+		//
+		//vid_thumb_res(largo_vid)
 	});
+
 	ctrl.receive(function(session){
-	    session.connected(function(session){ video_out.appendChild(session.video); addLog(session.number + " has joined."); vidCount++; });
-	    session.ended(function(session) { ctrl.getVideoElement(session.number).remove(); addLog(session.number + " has left.");    vidCount--;});
+	  session.connected(function(session){
+			var largo_vid = $("#vid-box").height();
+			var alto = largo_vid - 135;
+
+      video_out.appendChild(session.video);
+			$('#vid-thumb video').animate({
+				maxWidth: '140px',
+			  height: 'auto',
+			  opacity: '1',
+
+			  left: '30px',
+				top: alto
+			},200,'linear',function () {
+				$("#vid-thumb video").css({'z-index': '2','position': 'absolute',
+					'border': '3px solid #607d8b'});
+				$('#vid-thumb video').addClass('responsive-video hide-on-med-and-down')
+				$('#vid-box video').animate({width: "100%"},800,'linear');
+				$('#vid-box video').addClass('responsive-video');
+			});
+
+
+
+			vidCount++;
+
+		});
+	  session.ended(function(session) {
+			ctrl.getVideoElement(session.number).remove();
+			vidCount--;
+		});
+
 	});
+
 	ctrl.videoToggled(function(session, isEnabled){
 		ctrl.getVideoElement(session.number).toggle(isEnabled);
-		addLog(session.number+": video enabled - " + isEnabled);
 	});
+
 	ctrl.audioToggled(function(session, isEnabled){
 		ctrl.getVideoElement(session.number).css("opacity",isEnabled ? 1 : 0.75);
-		addLog(session.number+": audio enabled - " + isEnabled);
 	});
+
 	return false;
 }
 
@@ -71,11 +108,11 @@ function get_xirsys_servers() {
         type: 'POST',
         url: 'https://service.xirsys.com/ice',
         data: {
-            room: 'default',
-            application: 'default',
-            domain: 'kevingleason.me',
-            ident: 'gleasonk',
-            secret: 'b9066b5e-1f75-11e5-866a-c400956a1e19',
+            room: 'sala',
+            application: 'video-chat',
+            domain: 'aisark.com',
+            ident: 'aisark',
+            secret: '6baf634a-a7b1-11e6-b966-2475d09318bc',
             secure: 1,
         },
         success: function(res) {
@@ -83,7 +120,7 @@ function get_xirsys_servers() {
             res = JSON.parse(res);
             if (!res.e) servers = res.d.iceServers;
         },
-        async: false
+        async: true
     });
     return servers;
 }
