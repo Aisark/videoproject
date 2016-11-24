@@ -137,9 +137,10 @@
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	text-shadow: 0 1px 0 rgba(0,0,0,.3);
+	/*
 	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 2px 0 rgba(0, 0, 0, .7);
 	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 2px 0 rgba(0, 0, 0, .7);
-	box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 2px 0 rgba(0, 0, 0, .7);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 2px 0 rgba(0, 0, 0, .7);*/
 }
 
 #pricing-table .signup:hover {
@@ -154,10 +155,10 @@
 
 #pricing-table .signup:active, #pricing-table .signup:focus {
 	background: #40c4ff;
-	top: 2px;
+	top: 2px;/*
 	-moz-box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset;
 	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset;
-	box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset;
+	box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset;*/
 }
 
 /* --------------- */

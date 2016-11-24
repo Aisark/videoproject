@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Consultoria</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/form_visa.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <body>
+
+    <!--Navegador-->
+    <div class="navbar-fixed ">
+
+      <nav class="light-blue accent-3" role="navigation">
+        <div class="nav-wrapper container">
+
+          <a id="logo-container" href="#" class="brand-logo white-text">Logo</a> <!--Logo-->
+
+          <!--Lista-->
+          <ul class="Montserrat right hide-on-med-and-down">
+            <li><a href="#about" class="white-text">About me</a></li>
+            <li><a href="#consultoria" class="white-text">Consultoria</a></li>
+            <li><a href="#contacto" class="white-text">Contacto</a></li>
+          </ul>
+          <!--/Lista-->
+
+          <!--Navegador Responsive-->
+          <ul id="nav-mobile" class="side-nav  blue lighten-3">
+            <li>
+              <div class="userView">
+                <img class="background" src="img/office.jpg"  style="max-width: 300px;">
+                <a href="#!user"><img class="circle responsive-img" src="img/consultor-icon_02.jpg"></a>
+                <a href="#!name"><span class="white-text name">Cuauhtemoc Cruz</span></a>
+                <a href="#!email"><span class="white-text email">CuauhtemocCruz@gmail.com</span></a>
+              </div>
+            </li>
+            <li><div class="divider"></div></li>
+            <li><a href="#" class="white-text">About me</a></li>
+            <li><a href="#" class="white-text">Consultoria</a></li>
+            <li><a href="#" class="white-text">Contacto</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons white-text">menu</i></a>
+          <!--/Navegador Responsive-->
+
+        </div>
+      </nav>
+
+    </div>
+    <!--/Navegador-->
+
+    <div class="container" style="margin-top:50px;margin-bottom: 50px;">
+      <div class="inline" id="Checkout">
+        <h1>Pay Invoice</h1>
+        <div class="card-row">
+          <span class="visa"></span>
+          <span class="mastercard"></span>
+          <span class="amex"></span>
+          <span class="discover"></span>
+        </div>
+
+        <form action="">
+          <div class="form-group">
+              <label for="PaymentAmount">Payment amount</label>
+              <div class="amount-placeholder">
+                  <span>$</span>
+                  <span>500.00</span>
+              </div>
+          </div>
+          <div class="form-group">
+              <label or="NameOnCard">Name on card</label>
+              <input id="NameOnCard" class="form-control" type="text" maxlength="255"></input>
+          </div>
+          <div class="form-group">
+              <label for="CreditCardNumber">Card number</label>
+              <input id="CreditCardNumber" class="null card-image form-control" type="text"></input>
+          </div>
+          <div class="expiry-date-group form-group">
+              <label for="ExpiryDate">Expiry date</label>
+              <input id="ExpiryDate" class="form-control" type="text" placeholder="MM / YY" maxlength="7"></input>
+          </div>
+          <div class="security-code-group form-group">
+              <label for="SecurityCode">Security code</label>
+              <div class="input-container" >
+                  <input id="SecurityCode" class="form-control" type="text" ></input>
+                  <i id="cvc" class="fa fa-question-circle"></i>
+              </div>
+              <div class="cvc-preview-container two-card hide">
+                  <div class="amex-cvc-preview"></div>
+                  <div class="visa-mc-dis-cvc-preview"></div>
+              </div>
+          </div>
+          <div class="zip-code-group form-group">
+              <label for="ZIPCode">ZIP/Postal code</label>
+              <div class="input-container">
+                  <input id="ZIPCode" class="form-control" type="text" maxlength="10"></input>
+                  <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="left" data-content="Enter the ZIP/Postal code for your credit card billing address."><i class="fa fa-question-circle"></i></a>
+              </div>
+          </div>
+          <div align ="center">
+            <button  id="PayButton" class="btn btn-block btn-success submit-button blue lighten-2" type="submit">
+                <span class="submit-button-lock"></span>
+                <span class="align-middle">Pay $500.00</span>
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="page-footer light-blue accent-4">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Company Bio</h5>
+            <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Settings</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+              <li><a class="white-text" href="#!">Link 3</a></li>
+              <li><a class="white-text" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Connect</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+              <li><a class="white-text" href="#!">Link 3</a></li>
+              <li><a class="white-text" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        </div>
+      </div>
+    </footer>
+    <!--/Footer-->
+
+    <!--Scripts-->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/init.js"></script>
+    <!--/Scripts-->
+  </body>
+</html>
